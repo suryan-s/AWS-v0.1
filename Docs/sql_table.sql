@@ -1,0 +1,12 @@
+CREATE TABLE SensorData (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    sensor VARCHAR(30) NOT NULL,
+    location VARCHAR(30) NOT NULL,
+    Temperature VARCHAR(10),
+    Humidity VARCHAR(10),
+    Pressure VARCHAR(10),
+    UV_index VARCHAR(10),
+    Light_LUX VARCHAR(10),
+    
+)
