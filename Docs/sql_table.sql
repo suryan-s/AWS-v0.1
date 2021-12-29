@@ -7,6 +7,6 @@ CREATE TABLE SensorData (
     Humidity VARCHAR(10),
     Pressure VARCHAR(10),
     UV_index VARCHAR(10),
-    Light_LUX VARCHAR(10),
+    Light_LUX VARCHAR(10)
     
 )
