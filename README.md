@@ -3,7 +3,7 @@
 Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts. 
 
 ![AWS image](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/aws.jpeg?raw=true)
-## Working and Components
+### Working and Components
 **Zambretti equation** is used to forecast the weather for this project. A forecast index is calculated based on the pressure trend calculated from the on-read pressure value. Every 10 minutes the device gather environmental data. The pressure for each reading is stored in an array. The array is divided after 3 hours into a previous pressure reading and a subsequent pressure reading. The trend of dropping, stable, or rising is calculated on the basis of the difference between the two.
 
 In V.01, the forecast index used here does not take into account the season and the wind direction, which will be updated in the future.
@@ -18,12 +18,12 @@ Even though DHT22 is used most commonly for temperature and humidity, they have 
 The required libraary for the arduino IDE is provided in the repo. The most common error that might happen is the anologRead which was a big issue  in ESP32. Analogue libraary is also inlcuded in the repo.
 https://github.com/espressif/arduino-esp32/issues/102
 
-## PCB design
+### PCB design
 The PCB design is based on NodeMCU ESP32-S. Sensors could be attached to the board via a JST 2.5mm 4 pin socket to minimize loose connections. additional 6 I2C pins are provied for board expansion. LDO is used to increase the life of Li-ion battery becasue the board will keep on drawing power from the battery until the internal LDO of the board reaches the minimum voltage. BC547B is used as a switching transistor to save the exposed rain sensor copper pads from corrosions. After getting the reading, the sensor is turned off via the transistor. For solar panel, min 2W rating panels are recommended with 5V output.
 The PCB section includes the required gerber files, circuit diagram and 2d 1-scale image of the board.
 ![PCB circuit](https://github.com/suryan-s/AWS-v0.1/blob/main/PCB/AWS-GERBER-img.jpg?raw=true)
 
-## SQL-ESP32 board
+### SQL-ESP32 board
 The data obtained by the sensors are updated to the SQL database. The webpage would display the table with all the uploaded sensor data.
 AJAX havn't been added to the php script due to the maximum request limitation by the server. also since the data uploaded by the sensors are in between 15 minitues, a continous refreshing is not necessary. In future updates, a complete dashboard for weather station would be included.
 ![SQL table](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/sql-web-table.jpg?raw=true)
