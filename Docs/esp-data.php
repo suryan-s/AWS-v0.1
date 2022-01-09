@@ -5,9 +5,9 @@
 
 $servername = "localhost";
 
-// REPLACE with your Database name
+// REPLACE with your Database name with id
 $dbname = "XXXXXXXXXXXXXXX";
-// REPLACE with Database user
+// REPLACE with Database user with id
 $username = "XXXXXXXXXXXXXXX";
 // REPLACE with Database user password
 $password = "XXXXXXXXXXXXXXX";
