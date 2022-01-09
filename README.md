@@ -33,7 +33,8 @@ The tutorial for SQL ESP32:https://randomnerdtutorials.com/esp32-esp8266-mysql-d
 The PHP scripts were edited to suit this project which would be in the docs section of the repo. Place them into the public_html of the file manager from your respective hosting service
  **Don’t forget tO change the apiKey and database credentials.**  
 ### References
-All the major links which will help out to know more about the concepts and ideations would be linked down below:
+All the major links which will help out to know more about the concepts and ideations would be linked down below. This includes the effect of UV in plants, Zambretti Equation and weather station development:
+https://www.researchgate.net/publication/238784241_The_effect_of_UV-B_radiation_on_plant_growth_and_development
 http://www.truganinaweather.com/projects/zambretti-forecaster-project.htm
 https://communities.sas.com/t5/SAS-Analytics-for-IoT/Zambretti-Algorithm-for-Weather-Forecasting/td-p/679487
 https://github.com/fandonov/weatherstation
