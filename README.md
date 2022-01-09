@@ -1,5 +1,5 @@
 # AWS-v0.1
-## AWS or Automated Weather Station is an ESP32 based weather monitoring module 
+**AWS or Automated Weather Station is an ESP32 based weather monitoring module**
 Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts. 
 
 **Zambretti equation** is used to forecast the weather for this project. A forecast index is calculated based on the pressure trend calculated from the on-read pressure value. Every 10 minutes the device gather environmental data. The pressure for each reading is stored in an array. The array is divided after 3 hours into a previous pressure reading and a subsequent pressure reading. The trend of dropping, stable, or rising is calculated on the basis of the difference between the two.
@@ -19,7 +19,7 @@ The data obtained by the sensors are updated to the SQL database. The tutorial w
 https://randomnerdtutorials.com/esp32-esp8266-mysql-database-php/
 
 The PHP scripts were edited to suit this project which would be in the docs section of the repo. Place them into the public_html of the file manager from ur respective hosting service
- **Don’t forget the change the apiKey and database credentials.**  
+ **Don’t forget tO change the apiKey and database credentials.**  
 
 All the major links which will help out to know more about the concepts and ideations would be linked down below:
 http://www.truganinaweather.com/projects/zambretti-forecaster-project.htm
@@ -34,6 +34,10 @@ https://earthscience.stackexchange.com/questions/16366/weather-forecast-based-on
 - ML8511 Ultra-Violet sensor
 - BMP180 pressure sensor
 - Raindrop detection sensor 
+- MCP1700-2702ETO
+- Mini-Slide-Switch
+- BC547B
+- 18650 2700-3200mAh battery
 ## Environment Factors:
 - Temperature
 - Humidity
