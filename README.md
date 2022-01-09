@@ -18,6 +18,11 @@ Even though DHT22 is used most commonly for temperature and humidity, they have 
 The required libraary for the arduino IDE is provided in the repo. The most common error that might happen is the anologRead which was a big issue  in ESP32. Analogue libraary is also inlcuded in the repo.
 https://github.com/espressif/arduino-esp32/issues/102
 
+## PCB design
+The PCB design is based on NodeMCU ESP32-S. Sensors could be attached to the board via a JST 2.5mm 4 pin socket to minimize loose connections. additional 6 I2C pins are provied for board expansion. LDO is used to increase the life of Li-ion battery becasue the board will keep on drawing power from the battery until the internal LDO of the board reaches the minimum voltage. BC547B is used as a switching transistor to save the exposed rain sensor copper pads from corrosions. After getting the reading, the sensor is turned off via the transistor. For solar panel, min 2W rating panels are recommended with 5V output.
+The PCB section includes the required gerber files, circuit diagram and 2d 1-scale image of the board.
+![alt text](https://github.com/suryan-s/AWS-v0.1/blob/main/PCB/AWS-GERBER-img.jpg?raw=true)
+
 ## SQL-ESP32 board
 The data obtained by the sensors are updated to the SQL database. The webpage would display the table with all the uploaded sensor data.
 AJAX havn't been added to the php script due to the maximum request limitation by the server. also since the data uploaded by the sensors are in between 15 minitues, a continous refreshing is not necessary. In future updates, a complete dashboard for weather station would be included.
