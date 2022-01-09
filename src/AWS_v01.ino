@@ -65,7 +65,7 @@ Adafruit_BMP085 bmp;
 Adafruit_Sensor * aht_humidity, * aht_temp;
 BH1750 lightMeter;
 
-int Z, count = 0, trend, Po, Pressure_C, Temperature_C, Humidity_C, Altitude_C, Intensity_C, UV_C, UVOUT = 36, REF_3V3 = 4, Rain_Analog = 35, Rain_Power = 36, Rain_Val, pArr[18] = {0};
+int Z, count = 0, trend, Po, Pressure_C, Temperature_C, Humidity_C, Altitude_C, Intensity_C, UV_C, UVOUT = 32, REF_3V3 = 4, Rain_Analog = 35, Rain_Power = 34, Rain_Val, pArr[18] = {0};
 char forecast[40] = {"Loading"};
 
 int averageAnalogRead(int pin) {
