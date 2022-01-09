@@ -3,7 +3,7 @@
 Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts. 
 
 ![AWS image](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/aws.jpeg?raw=true)
-### Working and Components
+## Working and Components
 **Zambretti equation** is used to forecast the weather for this project. A forecast index is calculated based on the pressure trend calculated from the on-read pressure value. Every 10 minutes the device gather environmental data. The pressure for each reading is stored in an array. The array is divided after 3 hours into a previous pressure reading and a subsequent pressure reading. The trend of dropping, stable, or rising is calculated on the basis of the difference between the two.
 
 In V.01, the forecast index used here does not take into account the season and the wind direction, which will be updated in the future.
