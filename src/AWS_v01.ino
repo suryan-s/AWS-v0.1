@@ -93,6 +93,7 @@ float uvSensor() {
 
 void Zambretti_forecast(int P, int T, int A) {
 
+        digitalWrite(LED_BUILTIN, HIGH);
         count += 1;
         Po = P * pow(1 - ((0.0065 * A) / (T + (0.0065 * A) + 273.15)), -5.257); //Converting the on read pressure to sea pressure equivalent 
         Serial.printf("Pressure:%d, Sea-Preassure converted: %d ", P, Po);
@@ -249,6 +250,8 @@ void Zambretti_forecast(int P, int T, int A) {
         }
         Serial.printf("\n Forecast result: %s", forecast);
         Serial.println("\n\n");
+        digitalWrite(LED_BUILTIN, LOW);
+        
 }
 
 void Sensor(void) {
@@ -257,7 +260,7 @@ void Sensor(void) {
           the rain sensor activates. after reading, the transistor is turned off.
          * A 10 millisecond delay is given for the settling the power. 
         ***/
-
+        digitalWrite(LED_BUILTIN, HIGH); 
         digitalWrite(Rain_Power, HIGH);
         delay(10);
         aht_temp = aht.getTemperatureSensor();
@@ -305,10 +308,12 @@ void Sensor(void) {
                 Serial.println("Raining!");
         } else Serial.println("No rain detected..");
         digitalWrite(Rain_Power, HIGH);  // Rain sensor turned off
+        digitalWrite(LED_BUILTIN, LOW);
 }
 
 void mySQL_dataUpdate() {
 
+        digitalWrite(LED_BUILTIN, HIGH);        
         if (WiFi.status() == WL_CONNECTED) {
                 WiFiClient client;
                 HTTPClient http;
@@ -342,7 +347,7 @@ void mySQL_dataUpdate() {
         } else {
                 Serial.println("WiFi Disconnected");
         }
-
+        digitalWrite(LED_BUILTIN, LOW); 
 }
 
 void setup() {
@@ -391,16 +396,8 @@ void loop() {
         delay(100);
 
         Sensor();
-        digitalWrite(LED_BUILTIN, HIGH); 
-        delay(100);                     
-        digitalWrite(LED_BUILTIN, LOW); 
-        delay(100);
         Zambretti_forecast(Pressure_C, Temperature_C, Altitude_C);
-        digitalWrite(LED_BUILTIN, HIGH); 
-        delay(100);                     
-        digitalWrite(LED_BUILTIN, LOW); 
-        delay(100);
         mySQL_dataUpdate();
-        delay(1000ul*60*10);//delay for 10 minutes
+        delay(1000ul*60*15);//delay for 15 minutes
         
 }
