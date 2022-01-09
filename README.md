@@ -2,6 +2,7 @@
 **AWS or Automated Weather Station is an ESP32 based weather monitoring module**
 Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts. 
 
+![alt text](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/aws.jpg?raw=true)
 ## Working and Components
 **Zambretti equation** is used to forecast the weather for this project. A forecast index is calculated based on the pressure trend calculated from the on-read pressure value. Every 10 minutes the device gather environmental data. The pressure for each reading is stored in an array. The array is divided after 3 hours into a previous pressure reading and a subsequent pressure reading. The trend of dropping, stable, or rising is calculated on the basis of the difference between the two.
 
@@ -14,15 +15,18 @@ https://forum.arduino.cc/t/compare-different-i2c-temperature-and-humidity-sensor
 
 Even though DHT22 is used most commonly for temperature and humidity, they have a short life compared to others. The hysteresis of the sensor is also another factor. Some sensors give a fluctuating reading at a particular point that requires time to get back to a normal state. 
 
-The library attached here could help in case of error. The most common error that might happen is the anologRead which was a big issue  in ESP32
+The required libraary for the arduino IDE is provided in the repo. The most common error that might happen is the anologRead which was a big issue  in ESP32. Analogue libraary is also inlcuded in the repo.
 https://github.com/espressif/arduino-esp32/issues/102
 
-The data obtained by the sensors are updated to the SQL database. The tutorial would be linked down below:
-https://randomnerdtutorials.com/esp32-esp8266-mysql-database-php/
+## SQL-ESP32 board
+The data obtained by the sensors are updated to the SQL database. The webpage would display the table with all the uploaded sensor data.
+AJAX havn't been added to the php script due to the maximum request limitation by the server. also since the data uploaded by the sensors are in between 15 minitues, a continous refreshing is not necessary. In future updates, a complete dashboard for weather station would be included.
+![alt text](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/sql-web-table.jpg?raw=true)
+The tutorial for SQL ESP32:https://randomnerdtutorials.com/esp32-esp8266-mysql-database-php/
 
-The PHP scripts were edited to suit this project which would be in the docs section of the repo. Place them into the public_html of the file manager from ur respective hosting service
+The PHP scripts were edited to suit this project which would be in the docs section of the repo. Place them into the public_html of the file manager from your respective hosting service
  **Don’t forget tO change the apiKey and database credentials.**  
-
+### References
 All the major links which will help out to know more about the concepts and ideations would be linked down below:
 http://www.truganinaweather.com/projects/zambretti-forecaster-project.htm
 https://communities.sas.com/t5/SAS-Analytics-for-IoT/Zambretti-Algorithm-for-Weather-Forecasting/td-p/679487
