@@ -1,6 +1,7 @@
 # AWS-v0.1
-**AWS or Automated Weather Station is an ESP32 based weather monitoring module**
-Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts. 
+AWS or Automated Weather Station is an ESP32 based weather monitoring module. The project was started in 2021 by [Suryan S](https://github.com/suryan-s) as an IoT project for WorkspaceDevelopers. The project is licensed under MIT License. 
+
+Many weather forecast websites allow users to view forecasts up to five years in advance, but the exact conditions for a specific location may not be quite accurate. Most of the readings from the station are accurate within a radius of 1-5km. Readings at locations beyond that radius are generally of average to low accuracy. Using a low-cost AWS cluster, the data provided would be much more location-specific and accurate, leading to better weather forecasts and climate analysis. 
 
 ![AWS image](https://github.com/suryan-s/AWS-v0.1/blob/main/Docs/aws.jpeg?raw=true)
 ## Working and Components
