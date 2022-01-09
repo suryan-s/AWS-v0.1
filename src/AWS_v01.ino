@@ -103,8 +103,10 @@ void Zambretti_forecast(int P, int T, int A) {
                         pArr[k] = pArr[k + 1];
                 }
                 pArr[17] = Po;
-                //pArr[] takes 18 readings in 3 hours. The array is the divided into two halfs and average is taken as before and after readings.
-                //Based on the pressure drop between the before and after pArr[] values, trend type  and Forecast index is calculated.
+                /*
+                pArr[] takes 18 readings in 3 hours. The array is the divided into two halfs and average is taken as before and after readings.
+                Based on the pressure drop between the before and after pArr[] values, trend type  and Forecast index is calculated.
+                */
                 int P_avg_b = (pArr[0] + pArr[1] + pArr[2] + pArr[3] + pArr[4] + pArr[5] + pArr[6] + pArr[7] + pArr[8]) / 9;
                 int P_avg_a = (pArr[9] + pArr[10] + pArr[11] + pArr[12] + pArr[13] + pArr[14] + pArr[15] + pArr[16] + pArr[17]) / 9;
 
@@ -250,9 +252,12 @@ void Zambretti_forecast(int P, int T, int A) {
 }
 
 void Sensor(void) {
-         //IRLZ44N is used here to increase the lifespan of the rain sensor. Thus after the turing on the transistor,
-        //the rain sensor activates. after reading, the transistor is turned off.
-        //A 10 millisecond delay is given for the settling the power 
+         /***
+         * IRLZ44N is used here to increase the lifespan of the rain sensor. Thus after the turing on the transistor,
+          the rain sensor activates. after reading, the transistor is turned off.
+         * A 10 millisecond delay is given for the settling the power. 
+        ***/
+
         digitalWrite(Rain_Power, HIGH);
         delay(10);
         aht_temp = aht.getTemperatureSensor();
@@ -270,7 +275,13 @@ void Sensor(void) {
         UV_C = uvSensor();
         Rain_Val = analogRead(Rain_Analog);
 
-        //Print sensor value
+        
+        /***
+         * Print data to serial monitor
+         * Serial.print section is still kept in the code for debugging in case of faulty data upload to the database.
+         * After testing the sensor readings and SQL uploaded data, you could remove the serial.print section.
+         * SerialBT could be used to monitor the total status of the weather station via a serial bluetooth terminasl 
+         ***/
 
         Serial.println("\nTemperature AHT10: ");
         Serial.print(Temperature_C);
@@ -380,7 +391,15 @@ void loop() {
         delay(100);
 
         Sensor();
+        digitalWrite(LED_BUILTIN, HIGH); 
+        delay(100);                     
+        digitalWrite(LED_BUILTIN, LOW); 
+        delay(100);
         Zambretti_forecast(Pressure_C, Temperature_C, Altitude_C);
+        digitalWrite(LED_BUILTIN, HIGH); 
+        delay(100);                     
+        digitalWrite(LED_BUILTIN, LOW); 
+        delay(100);
         mySQL_dataUpdate();
         delay(1000ul*60*10);//delay for 10 minutes
         
